@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.Commands;
+using Discord.WebSocket;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,9 +30,20 @@ namespace bigmainelobster.Modules
                 string description = null;
                 foreach (var cmd in module.Commands)
                 {
-                    var result = await cmd.CheckPreconditionsAsync(Context);
-                    if (result.IsSuccess)
-                        description += $"{prefix}{cmd.Aliases.First()}\n";
+                    if (cmd.Name == "announce")
+                    {
+                        var user = Context.User as SocketGuildUser;
+                        if (user != null && user.Roles.Any(r => r.Name == "Announcers"))
+                        {
+                            description += $"{prefix}{cmd.Aliases.First()}\n";
+                        }
+                    }
+                    else
+                    {
+                        var result = await cmd.CheckPreconditionsAsync(Context);
+                        if (result.IsSuccess)
+                            description += $"{prefix}{cmd.Aliases.First()}\n";
+                    }
                 }
                 
                 if (!string.IsNullOrWhiteSpace(description))

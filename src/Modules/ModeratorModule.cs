@@ -29,11 +29,21 @@ namespace bigmainelobster.Modules
 
         [Command("announce"), Alias("announcersay")]
         [Remarks("Make the bot say something in the #announcements channel.")]
-        [MinPermissions(AccessLevel.ServerMod)]
         public async Task Announce([Remainder]string text)
         {
-            var channel = Context.Guild.TextChannels.FirstOrDefault(x => x.Name == "announcements");
-            if (channel != null) await channel.SendMessageAsync(text);
+            var user = Context.User as SocketGuildUser;
+            if (user != null)
+            {
+                if (user.Roles.Any(r => r.Name == "Announcers"))
+                {
+                    var channel = Context.Guild.TextChannels.FirstOrDefault(x => x.Name == "announcements");
+                    if (channel != null) await channel.SendMessageAsync(text);
+                }
+                else
+                {
+                    await ReplyAsync("Sorry, only Announcers can use the !annouce command.");
+                }
+            }
         }
     }
 }

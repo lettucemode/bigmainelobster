@@ -25,9 +25,13 @@ namespace bigmainelobster
 
         private async Task UserJoined(SocketGuildUser user)
         {
+            //welcome user
             var channel = user.Guild.TextChannels.FirstOrDefault(x => x.Name.Contains("all_chat"));
-            //var channel = _client.GetChannel(303238946542845955) as ISocketMessageChannel;
             if (channel != null) await channel.SendMessageAsync("Welcome " + user.Mention + ", to the TNBZ gaming community!");
+
+            //assign guest role
+            var guestRole = user.Guild.Roles.Where(r => r.Name == "guests").FirstOrDefault();
+            if (guestRole != null) await user.AddRoleAsync(guestRole);
         }
 
         private async Task HandleCommandAsync(SocketMessage s)
