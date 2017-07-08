@@ -1,9 +1,9 @@
 ﻿using Discord.Commands;
-using Example.Preconditions;
+using bigmainelobster.Preconditions;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Example.Modules
+namespace bigmainelobster.Modules
 {
     [Name("Math")]
     public class MathModule : ModuleBase<SocketCommandContext>

@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Example
+namespace bigmainelobster
 {
     /// <summary> 
     /// A file that contains information you either don't want public

@@ -1,10 +1,10 @@
 ﻿using Discord.Commands;
 using Discord.WebSocket;
-using Example.Preconditions;
+using bigmainelobster.Preconditions;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace Example.Modules
+namespace bigmainelobster.Modules
 {
     [Name("Moderator")]
     [RequireContext(ContextType.Guild)]

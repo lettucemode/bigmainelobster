@@ -1,4 +1,4 @@
-﻿namespace Example
+﻿namespace bigmainelobster
 {
     /// <summary>
     /// The enum used to specify permission levels. A lower

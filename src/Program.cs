@@ -3,7 +3,7 @@ using Discord.WebSocket;
 using System;
 using System.Threading.Tasks;
 
-namespace Example
+namespace bigmainelobster
 {
     public class Program
     {

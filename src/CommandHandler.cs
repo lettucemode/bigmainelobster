@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace Example
+namespace bigmainelobster
 {
     /// <summary> Detect whether a message is a command, then execute it. </summary>
     public class CommandHandler
